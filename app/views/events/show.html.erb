@@ -1,14 +1,22 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
   <div class="col-md-8">
-    <div class="thumbnail">
-      <h2><%= @event.name %></h2>
-      <%= image_tag @event.image.url(), class: "img-responsive" %>    
-      <div class="caption">
-        <h3><%= "Starts: #{@event.start_date.to_formatted_s(:long)}" %></h3>
-        <h4><%= "Ends: #{@event.end_date.to_formatted_s(:long)}" %></h4>
-        <h4><%= "Price: #{number_to_currency(@event.price)}" %></h4>
-        <h4>Description:</h4>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2><%= @event.name %></h2>
+      </div>
+      <div class="thumbnail">
+        <%= image_tag @event.image.url(), class: "img-responsive" %>
+      </div>    
+      <div class="panel-body">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3><%= "Starts: #{@event.start_date.to_formatted_s(:long)}" %></h3>
+            <h4><%= "Ends: #{@event.end_date.to_formatted_s(:long)}" %></h4>
+            <h4><%= "Price: #{number_to_currency(@event.price)}" %></h4>
+          </div>
+        </div>
+        <h2>Description:</h2>
         <p><%= @event.description %></p>
       </div>
     </div>
