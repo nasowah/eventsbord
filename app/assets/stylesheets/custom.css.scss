@@ -1,5 +1,45 @@
 @import "bootstrap";
 body {
 	margin-top: 70px;
-	background-color: #f2f2f2;
+	// background-color: #333;
+	// color: #fff;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.center {
+	text-align: center;
+}
+.navbar-default {
+	background-color: #fbfbfb;
+	border: none;	
+	// height: 50px;
+}
+.navbar-default .navbar-brand {
+	font-family: "Helveitica Neue", georgia, serif;
+	font-weight: 600;
+	color: #aa0103;
+	font-size: 30px;
+}
+.navbar-default .navbar-brand:hover {
+	color: #423f40
+}
+.navbar-default .navbar-nav > li > a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	color: #555;
+	line-height: 25px;
+}
+.navbar-default .navbar-nav > li > a:hover {
+	color: #f23677;
+}
+.navbar-default .navbar-nav > li > a > button {
+	padding: 10px;
+	background-color: #e0336b;
+	position: relative;
+	bottom: 10px;
+	color: #fff;
+	font-family: "Helvetica Neue";
+	font-size: 16px;
+	font-weight: 900;
+	line-height: 15px;
 }
