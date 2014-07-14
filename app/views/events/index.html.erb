@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-2 col-md-offset-1">
+    Discover
+  </div>
+  <div class="col-md-9">
+  <h4>Discover Events</h4>
+  <h5>Discover and get tickets for your favorite events right here.</h5>
+  <% @events.each do |event| %>
+    <div class="row well">
+        <div class="col-md-2">
+          <p>image will be here</p>
+        </div>
+        <div class="col-md-10">
+          <h4><%= event.name %></h4>
+          <p>
+            <%= event.venue %> <br>
+            <%= event.start_date %> <br>
+            <%= "Organized by #{event.organizer}" %>
+          </p>
+          <p>
+            <%= link_to 'Show', event %> | 
+            <%= link_to 'Edit', edit_event_path(event) %> | 
+            <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </p>
+        </div>
+    </div>
+  <% end %>
+  </div>
+</div>
+<br>
+
+<%= link_to 'New Event', new_event_path %>
