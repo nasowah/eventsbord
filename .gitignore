@@ -17,3 +17,6 @@
 
 #Ignore paperclip upload
 /public/system/
+
+# Ignore application configuration
+/config/application.yml
