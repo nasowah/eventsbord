@@ -16,7 +16,7 @@
 /tmp
 
 #Ignore paperclip upload
-/public/system/
+/public/system
 
 # Ignore application configuration
 /config/application.yml
