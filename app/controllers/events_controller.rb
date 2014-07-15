@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_filter :check_user, only: [:edit, :update, :destroy]
+  # before_filter :authenticate_user!, except: [:index, :show]
 
   # GET /events
   def index
@@ -55,5 +58,11 @@ class EventsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def event_params
       params.require(:event).permit(:name, :description, :venue, :start_date, :end_date, :image, :price, :organizer, :phone)
+    end
+
+    def check_user
+      if current_user != @event.user
+        redirect_to root_url, alert: "Sorry, '#{@event.name}' event belongs to someone else."
+      end
     end
 end

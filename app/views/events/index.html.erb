@@ -21,9 +21,11 @@
               <%= "Organized by #{event.organizer}" %>
             </p>
             <p>
-              <%= link_to 'Show', event %> | 
-              <%= link_to 'Edit', edit_event_path(event) %> | 
-              <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%#= link_to 'Show', event %> 
+              <% if user_signed_in? && current_user == event.user %> 
+                <%= link_to 'Edit', edit_event_path(event) %> | 
+                <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
             </p>
           </div>
       </div>
@@ -43,5 +45,6 @@
   </div>
 </div>
 <br>
-
-<%= link_to 'New Event', new_event_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Event', new_event_path %>
+<% end %>
