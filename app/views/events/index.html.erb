@@ -2,19 +2,19 @@
   <div class="col-md-9">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h4>Discover Events</h4>
-      <h5>Discover and get tickets for your favorite events right here.</h5>
+      <h3>Discover Events</h3>
+      <h4>Discover and get tickets for your favorite events right here.</h4>
     </div>
     <% @events.each do |event| %>
     <div class="panel-body">
       <div class="row">
           <div class="col-md-3">
             <div class="thumbnail">
-              <%= image_tag event.image.url, class: "img-responsive" %>
+              <%= link_to image_tag(event.image.url), event, class: "img-responsive" %>
             </div>
           </div>
           <div class="col-md-9">
-            <h4><%= event.name %></h4>
+            <h4><%= link_to event.name, event %></h4>
             <p>
               <%= event.venue %> <br>
               <%= event.start_date.to_formatted_s(:long) %> <br>
