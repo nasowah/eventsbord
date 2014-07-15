@@ -1,5 +1,6 @@
 Eventsbord::Application.routes.draw do
 
+  devise_for :users
   resources :events
 
   get "pages/home"
