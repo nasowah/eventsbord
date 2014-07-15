@@ -12,4 +12,9 @@ class Event < ActiveRecord::Base
 	
 
 	validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+	validates_attachment_presence :image
+
+
+	validates :name, :description, :venue, :start_date, :end_date, :price, :organizer, :phone, presence: true
+	validates :price, numericality: { greater_than_or_equal_to: 0 }
 end
