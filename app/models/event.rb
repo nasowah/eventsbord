@@ -21,4 +21,8 @@ class Event < ActiveRecord::Base
 
 	belongs_to :user
 	has_many :registrants, dependent: :destroy
+
+	def self.search(query)
+  	where("venue like ?", "%#{query}%")
+	end
 end

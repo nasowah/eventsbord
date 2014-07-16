@@ -1,3 +1,11 @@
+<div class="form-inline">
+  <%= form_tag(events_path, :method => "get") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Events by Venue", class: "form-control" %>
+    <%= submit_tag "Search", :name => nil, class: "btn btn-info" %>
+  <% end %>
+</div>
+<br>
+
 <div class="row">
   <div class="col-md-9">
   <div class="panel panel-default">

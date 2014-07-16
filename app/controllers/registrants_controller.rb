@@ -4,7 +4,12 @@ class RegistrantsController < ApplicationController
 
   # GET /registrants
   def index
-    @registrants = Registrant.all
+    # @registrants = Registrant.all
+    if params[:search]
+      @registrants = Registrant.search(params[:search]).order("created_at DESC")
+    else
+      @registrants = Registrant.all.order('created_at DESC')
+    end
   end
 
   # GET /registrants/1

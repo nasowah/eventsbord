@@ -10,8 +10,14 @@ class EventsController < ApplicationController
 
   # GET /events
   def index
-    @events = Event.all.order("created_at DESC")
+    # @events = Event.all.order("created_at DESC")
+    if params[:search]
+      @events = Event.search(params[:search]).order("created_at DESC")
+    else
+      @events = Event.all.order('created_at DESC')
+    end
   end
+
 
   # GET /events/1
   def show

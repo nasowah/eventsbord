@@ -4,4 +4,8 @@ class Registrant < ActiveRecord::Base
 	validates :ticket, numericality: { greater_than: 0 }
 
 	belongs_to :event
+
+	def self.search(query)
+  	where(" first_name like ?", "%#{query}%")
+	end
 end

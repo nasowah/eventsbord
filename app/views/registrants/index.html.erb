@@ -1,10 +1,10 @@
-<% form_tag event_registrants_path, method: 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", name: nil %>
-  </p>
-<% end %>
-
+<div class="form-inline">
+  <%= form_tag(event_registrants_path, :method => "get") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search by First name", class: "form-control" %>
+    <%= submit_tag "Search", :name => nil, class: "btn btn-info" %>
+  <% end %>
+</div>
+<br>
 <div class="panel panel-default">
  <div class="panel-body">
     <table class="table table-striped">
