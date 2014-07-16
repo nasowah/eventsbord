@@ -7,6 +7,7 @@
     <th class="center">Start Date</th>
     <th class="center">End Date</th>
     <th class="center">Price</th>
+    <th class="center">Registrants</th>
     <th class="center">Actions</th>
   </tr>
   <% @events.each do |event| %>
@@ -18,6 +19,7 @@
       <td><%= event.start_date %></td>
       <td><%= event.end_date %></td>
       <td><%= number_to_currency(event.price) %></td>
+      <td><%= link_to event.registrants.size, event_registrants_path(event) %></td>
       <td>
       <div class="btn-group">
         <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">

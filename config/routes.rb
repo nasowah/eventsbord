@@ -1,7 +1,9 @@
 Eventsbord::Application.routes.draw do
 
   devise_for :users
-  resources :events
+  resources :events do
+    resources :registrants, only: [:new, :create, :index]
+  end
 
   get "pages/home"
   get "pages/about"

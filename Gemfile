@@ -19,6 +19,7 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'turbolinks'
 gem 'figaro'
+# gem 'searchlogic'
 
 group :assets do
   gem 'coffee-rails'

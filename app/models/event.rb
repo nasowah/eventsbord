@@ -17,6 +17,8 @@ class Event < ActiveRecord::Base
 
 	validates :name, :description, :venue, :start_date, :end_date, :price, :organizer, :phone, presence: true
 	validates :price, numericality: { greater_than_or_equal_to: 0 }
+	validates :phone, numericality: true, length: { minimum: 10, maximum: 15 }
 
 	belongs_to :user
+	has_many :registrants, dependent: :destroy
 end

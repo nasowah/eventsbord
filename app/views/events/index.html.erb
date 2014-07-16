@@ -17,7 +17,7 @@
             <h4><%= link_to event.name, event %></h4>
             <p>
               <%= event.venue %> <br>
-              <%= event.start_date.to_formatted_s(:long) %> <br>
+              <%= event.start_date.strftime("%B %d at %I: %M %p") %> <br>
               <%= "Organized by #{event.organizer}" %>
             </p>
             <!-- <p>

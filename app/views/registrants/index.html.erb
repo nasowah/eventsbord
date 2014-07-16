@@ -1,0 +1,41 @@
+<% form_tag event_registrants_path, method: 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", name: nil %>
+  </p>
+<% end %>
+
+<div class="panel panel-default">
+ <div class="panel-body">
+    <table class="table table-striped">
+     <thead>
+       <tr>
+         <th>Event Name</th>
+         <th>First name</th>
+         <th>Last name</th>
+         <th>Mobile</th>
+         <th>Email</th>
+         <th>Ticket</th>
+       </tr>
+     </thead>
+   
+     <tbody>
+       <% @registrants.each do |registrant| %>
+         <tr>
+         <% if current_user == registrant.event.user %>
+           <td><%= registrant.event.name %></td>
+           <td><%= registrant.first_name %></td>
+           <td><%= registrant.last_name %></td>
+           <td><%= registrant.mobile %></td>
+           <td><%= registrant.email %></td>
+           <td><%= registrant.ticket %></td>
+         <% end %>
+         </tr>
+       <% end %>
+     </tbody>
+   </table>
+ </div>
+</div>
+<br>
+
+<%#= link_to 'New Registrant', new_event_registrant_path %>

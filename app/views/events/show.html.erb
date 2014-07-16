@@ -10,13 +10,20 @@
       <div class="panel-body">
         <div class="panel panel-info">
           <div class="panel-heading">
-            <h3><%= "Starts: #{@event.start_date.to_formatted_s(:long)}" %></h3>
-            <h4><%= "Ends: #{@event.end_date.to_formatted_s(:long)}" %></h4>
+            <h3><%= "Starts: #{@event.start_date.strftime("%B %d %Y on %I:%M %p")}" %></h3>
+            <h4><%= "Ends: #{@event.end_date.strftime("%B %d %Y on %I:%M %p")}" %></h4>
             <h4><%= "Price: #{number_to_currency(@event.price)}" %></h4>
           </div>
         </div>
         <h2>Event Description:</h2>
         <p><%= @event.description %></p>
+        <br>
+          <div class="center">
+           <span> 
+              <%= pluralize @event.registrants.count, "person" %> registered |
+              <%= link_to "Get Your Ticket", new_event_registrant_path(@event), class: "btn btn-primary" %>
+            </span>
+          </div>
       </div>
     </div>
   </div>
