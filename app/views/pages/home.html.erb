@@ -4,3 +4,30 @@
 	
 	<%= link_to "Discover Events", events_path, class: "btn btn-primary btn-lg" %>
 </div>
+
+<div class="center">
+  <div class="row">
+    <% @events.each do |event| %>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <%= link_to image_tag(event.image.url), event %>
+          <%# image_tag event.image.url %>
+          <div class="caption">
+            <h3><%= event.name %></h3>
+            <p><%= number_to_currency(event.price) %></p>
+            <p>
+	            <%= event.venue %> <br>
+	            <%= event.start_date.strftime("%B %d at %I: %M %p") %> <br>
+	            <%= "Organized by #{event.organizer}" %>
+            </p>
+            <%# link_to 'Show', event, class: "btn btn-link" %>
+            <%# if (user_signed_in?) && (current_user = event.user) %>
+              <%# link_to 'Edit', edit_event_path(event), class: "btn btn-link" %>
+              <%# link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
+            <%# end %>
+          </div>
+        </div> 
+      </div>
+    <% end %>
+  </div>
+</div
