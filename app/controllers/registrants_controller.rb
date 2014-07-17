@@ -30,6 +30,7 @@ class RegistrantsController < ApplicationController
   def create
     @registrant = Registrant.new(registrant_params)
     @event = Event.find(params[:event_id])
+    # @registrant = @event.registrants.create(registrant_params)
     @registrant.event_id = @event.id
 
     if @registrant.save
