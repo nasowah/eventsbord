@@ -28,13 +28,13 @@ class RegistrantsController < ApplicationController
 
   # POST /registrants
   def create
-    @registrant = Registrant.new(registrant_params)
+    # @registrant = Registrant.new(registrant_params)
     @event = Event.find(params[:event_id])
-    # @registrant = @event.registrants.create(registrant_params)
-    @registrant.event_id = @event.id
+    @registrant = @event.registrants.create(registrant_params)
+    # @registrant.event_id = @event.id
 
     if @registrant.save
-      redirect_to root_url, notice: "You've successfully registered for the '#{@event.name}' event"
+      redirect_to @event, notice: "You've successfully registered for the '#{@event.name}' event"
     else
       render action: 'new'
     end
